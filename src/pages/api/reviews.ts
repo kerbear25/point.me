@@ -30,7 +30,7 @@ const parseNumberInput = (input: any) => {
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Review[]>,
+  res: NextApiResponse<{ reviews: Review[]; lastReviewId?: number }>,
 ) {
   if (req.method === 'GET') {
     const page = parseNumberInput(req.query.page) || DEFAULT_PAGE_NUMBER;
@@ -42,7 +42,10 @@ export default function handler(
     const dataset = data.filter(
       (r: Review) => r.id > startIndex && r.id <= endIndex,
     );
-    res.status(200).json(dataset);
+    console.log(data[data.length - 1].id, 'id');
+    res
+      .status(200)
+      .json({ reviews: dataset, lastReviewId: data[data.length - 1].id });
   } else {
     res.status(404);
   }
