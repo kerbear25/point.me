@@ -1,19 +1,35 @@
+import React from 'react';
+
 type StarProps = {
+  hideCursorOnHover?: boolean;
+  hovered?: boolean;
   marked: boolean;
+  onClick?: (starId: number) => void;
+  onHover?: (starId: number) => void;
   starId: number;
-  hideCursorOnHover?: boolean; // Optional prop to hide cursor on hover
 };
 
-const Star = ({ marked, starId, hideCursorOnHover = false }: StarProps) => {
+const Star = ({
+  hideCursorOnHover,
+  hovered,
+  marked,
+  onClick,
+  onHover,
+  starId,
+}: StarProps) => {
+  const goldenYellow = '#f5c518';
   return (
     <span
-      data-star-id={starId}
       className={`text-3xl ${
         hideCursorOnHover ? 'cursor-default' : 'cursor-pointer'
       }`}
+      data-star-id={starId}
+      onClick={() => onClick && onClick(starId)}
+      onMouseEnter={() => onHover && onHover(starId)}
       role="button"
+      style={{ color: hovered || marked ? goldenYellow : 'gray' }} // Change the color based on hovered or marked state
     >
-      {marked ? '\u2605' : '\u2606'}
+      {hovered || marked ? '\u2605' : '\u2606'}
     </span>
   );
 };

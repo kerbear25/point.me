@@ -44,9 +44,9 @@ const Reviews = () => {
           {[...Array(rating)].map((_, index) => (
             <Star
               key={index}
-              starId={index + 1}
-              marked={true}
               hideCursorOnHover={true}
+              marked={true}
+              starId={index + 1}
             />
           ))}
           {review && <p className="p-2">{review}</p>}
