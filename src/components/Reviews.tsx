@@ -50,7 +50,12 @@ const Reviews = () => {
         <div key={id} className="p-6 border-b-4 border-indigo-500">
           {/* TODO: Hide click cursor on hover */}
           {[...Array(rating)].map((_, index) => (
-            <Star key={index} starId={index + 1} marked={true} />
+            <Star
+              key={index}
+              starId={index + 1}
+              marked={true}
+              hideCursorOnHover={true}
+            />
           ))}
           {review && <p className="p-2">{review}</p>}
           <p className="p-2">- {author}</p>

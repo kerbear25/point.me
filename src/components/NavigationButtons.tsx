@@ -1,8 +1,8 @@
-interface NavigationButtonsProps {
+type NavigationButtonsProps = {
   currentPage: number;
   isNextDisabled: boolean;
   setCurrentPage: (page: number) => void;
-}
+};
 
 const NavigationButtons = ({
   currentPage,
