@@ -3,13 +3,6 @@ import Review from '@/data/Review';
 import Star from '@/components/Star';
 import NavigationButtons from '@/components/NavigationButtons';
 
-// TODO: Should Reviews fetch reviews, or should the data come in from the parent component?
-
-// TODO: Display reviews vertically
-// TODO: Media queries
-// TODO: Background color
-// TODO: Font
-// TODO: Font color
 const Reviews = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [loading, setLoading] = useState(true);
