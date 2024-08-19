@@ -37,11 +37,10 @@ const Reviews = () => {
   }
 
   return (
-    <div className="flex flex-col">
-      <h1 className="text-center">Reviews</h1>
+    <div className="flex flex-col pb-12 font-lato">
+      <h1 className="text-center text-2xl font-bold">Reviews</h1>
       {reviews.map(({ id, author, rating, review }) => (
         <div key={id} className="p-6 border-b-4 border-indigo-500">
-          {/* TODO: Hide click cursor on hover */}
           {[...Array(rating)].map((_, index) => (
             <Star
               key={index}
@@ -51,7 +50,7 @@ const Reviews = () => {
             />
           ))}
           {review && <p className="p-2">{review}</p>}
-          <p className="p-2">- {author}</p>
+          <p className="p-2 italic">- {author}</p>
         </div>
       ))}
 

@@ -2,8 +2,8 @@ import StarRating from '@/components/StarRating';
 
 const NewReview = () => {
   return (
-    <div>
-      <h1 className="text-center">New Review</h1>
+    <div className="font-lato font-bold">
+      <h1 className="text-center text-2xl">New Review</h1>
       <StarRating />
     </div>
   );
